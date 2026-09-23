@@ -3,7 +3,6 @@ session_start();
 
 require_once "../config/database.php";
 
-// Jika sudah login
 if (isset($_SESSION['admin_id'])) {
     header("Location: ../dashboard/index.php");
     exit;
@@ -34,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($admin && password_verify($password, $admin["password"])) {
 
-            // Regenerate session ID untuk keamanan
+            
             session_regenerate_id(true);
 
             $_SESSION["admin_id"]    = $admin["id"];

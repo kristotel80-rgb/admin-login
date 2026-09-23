@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-// Hapus semua data session
 $_SESSION = [];
 
-// Hapus cookie session jika tersedia
 if (ini_get("session.use_cookies")) {
 
     $params = session_get_cookie_params();
@@ -20,9 +18,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Hancurkan session
 session_destroy();
 
-// Kembali ke halaman login
 header("Location: login.php");
 exit;
